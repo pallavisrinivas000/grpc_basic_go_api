@@ -1,0 +1,22 @@
+syntax = "proto3";
+package crud;
+
+option go_package = ".;crud";
+service ItemService {
+  rpc CreateItem(CreateItemRequest) returns (Item);
+  rpc GetItem(GetItemRequest) returns (Item);
+}
+
+message Item {
+  string id = 1;
+  string name = 2;
+  int64 price = 3;
+} 
+
+message CreateItemRequest {
+  string name = 1;
+  int64 price = 2;
+}
+message GetItemRequest {
+  string id = 1;
+}
